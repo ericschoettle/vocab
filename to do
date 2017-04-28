@@ -1,0 +1,26 @@
+-Make specs for words
+  - save, id, find, all, clear, random, alphabetize, add definition
+-Make words
+-Get words to pass specs
+
+-Make specs for definitions
+  - save, id, find, all, clear, random, part of speech, primary
+-Make definitions
+-Get definitions to pass specs
+
+-Make app.rb and and index (list of words, linking to words/id)
+-Make post request for new words
+-Make post request for new definitions
+-Use Mirriam-webster API to look up words
+  - allow user to add Mirriam Webster definition
+  - Look at what I can do with part of speech, etc. from that app. Ideas
+    - Nouns lead to google image search
+    - Proper nouns give a link to Wikipedia
+    - Places give a link to google maps of place, or google maps API.
+
+- Allow kids to upload a picture or add a google image as their image
+
+
+-Make integration specs
+-Make readme
+-Styling (bootstrap!!)
