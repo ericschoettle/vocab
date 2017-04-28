@@ -1,13 +1,4 @@
--Make specs for words
-  - save, id, find, all, clear, random, alphabetize, add definition
--Make words
--Get words to pass specs
-
--Make specs for definitions
-  - save, id, find, all, clear, part of speech, primary
--Make definitions
--Get definitions to pass specs
-
+-make layout and link to bootstrap and stylesheet
 -Make app.rb and and index (list of words, linking to words/id)
 -Make post request for new words
 -Make post request for new definitions

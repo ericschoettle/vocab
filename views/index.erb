@@ -1,0 +1,35 @@
+<div class="jumbotron">
+  <h2>Add a word:</h2>
+
+  <form class="" action="/word/<%= @words.length + 1 %>" method="post">
+    <div class="form-group">
+      <label for="word">Enter a word</label>
+      <input type="text" name="word" placeholder="eg: delicious">
+    </div>
+    <div class="form-group">
+      <label for="part_of_speech">What is its part of speech?</label>
+      <input type="text" name="part_of_speech" placeholder="eg: adjective">
+    </div>
+    <div class="form-group">
+      <label for="body">What does it mean?</label>
+      <input type="text" name="body" placeholder="eg: great tasting">
+    </div>
+    <div class="form-group">
+      <label for="body">What is a sentence with the word in it?</label>
+      <input type="text" name="body" placeholder="eg: That wine was delicious!!">
+    </div>
+  </form>
+</div>
+
+<div class="jumbotron">
+  <% if @words.length > 0 %>
+    <h2>Your words:</h2>
+    <ul>
+      <% @words.each() do |word| %>
+        <p>
+          <li><a href="/word/<%= word.id() %> "><%= word.word() %></a></li>
+        </p>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
