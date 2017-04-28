@@ -55,7 +55,6 @@ class Words
     part_of_speech = /<fl>(.*?)<\/fl>/.match(response)[1]
     body = /<dt>:(.*?)<\/dt>/.match(response)[1]
     body = /.+?(?=[^A-Za-z0-9\s])/.match(body)[1]
-    Definition.new({"word" => self, "part_of_speech" => part_of_speech, "in_a_sentence" => "", "body" => body})
-    definition.save()
+    Definitions.new({"word" => self, "part_of_speech" => part_of_speech, "in_a_sentence" => "", "body" => body})
   end
 end

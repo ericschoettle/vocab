@@ -32,5 +32,9 @@
 <div class="jumbotron">
   <h2>Mirriam-Webster says:</h2>
   <h3><b><%=@word.word()%></b></h3>
-  <%= @word.dictionary() %>
+  <p><b><i><%=@dictionary.part_of_speech()%></i>:</b> <%=@dictionary.body()%></p>
+  <form action="/plagarize" method="post">
+    <input type="hidden" name="definition" value="<%=@dictionary%>" >
+    <button class="btn btn-danger" type="submit">Plagarize???</button>
+  </form>
 </div>

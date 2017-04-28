@@ -21,13 +21,15 @@ end
 
 get('/word/:word') do
   @word = Words.find_by_word(params["word"])
+  @dictionary = @word.dictionary()
   @words = Words.all()
   erb(:word)
 end
 
-post('/definition') do
-  definition = Definitions.new(params)
-  definition.attach_to_word()
-  @word = Words.find_by_word(params["word"])
+post('/plagarize') do
+  definition = params["definition"]
+  definition.save()
+  @word = Words.find_by_word(definition.word())
   erb(:word)
+  
 end
