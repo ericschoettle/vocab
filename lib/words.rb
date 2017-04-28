@@ -1,4 +1,5 @@
 require('pry')
+require "rest-client"
 
 class Words
   @@words = []
@@ -46,5 +47,15 @@ class Words
       end
     end
     found_word
+  end
+
+  define_method(:dictionary) do
+    url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/" + word + "?key=dc368593-f759-4a0f-b8da-2e87f78e0fed"
+    response = RestClient.get(url).body
+    part_of_speech = /<fl>(.*?)<\/fl>/.match(response)[1]
+    body = /<dt>:(.*?)<\/dt>/.match(response)[1]
+    body = /.+?(?=[^A-Za-z0-9\s])/.match(body)[1]
+    Definition.new({"word" => self, "part_of_speech" => part_of_speech, "in_a_sentence" => "", "body" => body})
+    definition.save()
   end
 end
