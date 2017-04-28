@@ -28,15 +28,21 @@ class Words
     @images.push(image)
   end
 
+  # define_singleton_method(:search_and_add) do |definition|
+  #   if definition.word
+  #
+  #   end
+  # end
+
   define_singleton_method(:clear) do
     @@words = []
   end
 
-  define_singleton_method(:find) do |ident|
+  define_singleton_method(:find_by_word) do |word|
     found_word = nil
-    @@words.each() do |word|
-      if word.id()==ident.to_i
-        found_word = word
+    @@words.each() do |test_word|
+      if test_word.word() == word
+        found_word = test_word
       end
     end
     found_word

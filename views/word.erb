@@ -1,0 +1,30 @@
+
+<div class="jumbotron">
+  <h2><%=@word.word()%>:</h2>
+
+  <% @word.definitions.each() do |definition| %>
+    <p><b><i><%=definition.part_of_speech()%></i>:</b> <%=definition.body()%></p>
+    <p><i><%=definition.in_a_sentence()%></i></p>
+  <% end %>
+</div>
+
+<div class="jumbotron">
+  <h2>Add definitions for <%=@word.word()%>:</h2>
+
+  <form action="/definition" method="post">
+    <input type="hidden" name="word" value="<%=@word.word()%>" >
+    <div class="form-group">
+      <label for="part_of_speech">What is the part of speech?</label>
+      <input class="form-control" type="text" name="part_of_speech" placeholder="eg: adjective">
+    </div>
+    <div class="form-group">
+      <label for="body">What does it mean?</label>
+      <input class="form-control" type="text" name="body" placeholder="eg: great tasting">
+    </div>
+    <div class="form-group">
+      <label for="in_a_sentence">What is a sentence with the word in it?</label>
+      <input class="form-control" type="text" name="in_a_sentence" placeholder="eg: That wine was delicious!!">
+    </div>
+    <button class="btn btn-success" type="submit">Add the word!</button>
+  </form>
+</div>

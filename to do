@@ -1,5 +1,4 @@
 -make layout and link to bootstrap and stylesheet
--Make app.rb and and index (list of words, linking to words/id)
 -Make post request for new words
 -Make post request for new definitions
 -Use Mirriam-webster API to look up words
@@ -15,3 +14,9 @@
 -Make integration specs
 -Make readme
 -Styling (bootstrap!!)
+-post to Heroku
+-Turn in
+
+Cool code!!: 
+word_id = params["id"].to_i
+["splat", "captures", "id"].each { |key| params.delete key }

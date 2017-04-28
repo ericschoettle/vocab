@@ -1,4 +1,5 @@
 require('pry')
+
 class Definitions
   @@definitions = []
   attr_accessor(:word, :part_of_speech, :in_a_sentence, :body)
@@ -24,7 +25,17 @@ class Definitions
     @@definitions = []
   end
 
-  define_singleton_method(:find) do |ident|
+  define_method(:attach_to_word) do
+    if Words.find_by_word(@word)
+      Words.find_by_word(@word).add_definition(self)
+    else
+      new_word = Words.new(@word)
+      new_word.save()
+      new_word.add_definition(self)
+    end
+  end
+
+  define_singleton_method(:find_by_id) do |ident|
     found_definition = nil
     @@definitions.each() do |definition|
       if definition.id()==ident.to_i

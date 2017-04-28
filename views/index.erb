@@ -1,23 +1,24 @@
 <div class="jumbotron">
   <h2>Add a word:</h2>
 
-  <form class="" action="/word/<%= @words.length + 1 %>" method="post">
+  <form class="" action="/word" method="post">
     <div class="form-group">
       <label for="word">Enter a word</label>
-      <input type="text" name="word" placeholder="eg: delicious">
+      <input class="form-control" type="text" name="word" placeholder="eg: delicious">
     </div>
     <div class="form-group">
-      <label for="part_of_speech">What is its part of speech?</label>
-      <input type="text" name="part_of_speech" placeholder="eg: adjective">
+      <label for="part_of_speech">What is the part of speech?</label>
+      <input class="form-control" type="text" name="part_of_speech" placeholder="eg: adjective">
     </div>
     <div class="form-group">
       <label for="body">What does it mean?</label>
-      <input type="text" name="body" placeholder="eg: great tasting">
+      <input class="form-control" type="text" name="body" placeholder="eg: great tasting">
     </div>
     <div class="form-group">
-      <label for="body">What is a sentence with the word in it?</label>
-      <input type="text" name="body" placeholder="eg: That wine was delicious!!">
+      <label for="in_a_sentence">What is a sentence with the word in it?</label>
+      <input class="form-control" type="text" name="in_a_sentence" placeholder="eg: That wine was delicious!!">
     </div>
+    <button class="btn btn-success" type="submit">Add the word!</button>
   </form>
 </div>
 
@@ -27,7 +28,7 @@
     <ul>
       <% @words.each() do |word| %>
         <p>
-          <li><a href="/word/<%= word.id() %> "><%= word.word() %></a></li>
+          <li><a href="/word/<%= word.word() %> "><%= word.word() %></a></li>
         </p>
       <% end %>
     </ul>

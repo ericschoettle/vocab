@@ -21,14 +21,6 @@ describe('Words') do
     end
   end
 
-  describe("#id") do
-    it "returns the id of the word" do
-      test_word = Words.new("slither")
-      test_word.save()
-      expect(test_word.id()).to(eq(1))
-    end
-  end
-
   describe("#save") do
     it("adds a word to the array of saved words") do
       test_word = Words.new("slither").save()
@@ -54,13 +46,13 @@ describe('Words') do
     end
   end
 
-  describe('find') do
-    it ('returns word based on id #') do
+  describe('find_by_word') do
+    it ('returns word based on the word') do
       test_word = Words.new("slither")
       test_word.save()
       test_word2 = Words.new("slather")
       test_word2.save()
-      expect(Words.find(test_word.id())).to(eq(test_word))
+      expect(Words.find_by_word(test_word.word())).to(eq(test_word))
     end
   end
 end

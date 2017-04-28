@@ -1,5 +1,6 @@
 require('rspec')
 require('definitions')
+require('pry')
 
 describe('Definitions') do
   definition_spec_params = {"word" => "slither", "part_of_speech" => "verb", "in_a_sentence" => "The snake slithered across the path", "body" => "to go or walk with a sliding motion"}
@@ -50,6 +51,22 @@ describe('Definitions') do
     end
   end
 
+  describe("#attach_to_word") do
+    it "creates a new word if the word doesn't yet exist" do
+      binding.pry
+      test_definition = Definitions.new(definition_spec_params)
+      test_definition.attach_to_word()
+      expect(Words.find_by_word("slither").definitions).to(eq([test_definition]))
+    end
+    it "attaches the definition to a pre-existing word" do
+      new_word = Words.new("slither")
+      new_word.save()
+      test_definition = Definitions.new(definition_spec_params)
+      test_definition.attach_to_word()
+      expect(new_word.definitions.include?(test_definition)).to(eq(TRUE))
+    end
+  end
+
   describe("#save") do
     it("adds a definition to the array of saved definitions") do
       test_definition = Definitions.new(definition_spec_params)
@@ -66,13 +83,13 @@ describe('Definitions') do
     end
   end
 
-  describe('find') do
+  describe('find_by_id') do
     it ('returns definition based on id #') do
       test_definition = Definitions.new(definition_spec_params)
       test_definition.save()
       test_definition2 = Definitions.new(definition_spec_params)
       test_definition2.save()
-      expect(Definitions.find(test_definition.id())).to(eq(test_definition))
+      expect(Definitions.find_by_id(test_definition.id())).to(eq(test_definition))
     end
   end
 end
