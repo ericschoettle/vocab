@@ -1,7 +1,6 @@
 require('rspec')
 require('definitions')
 
-
 describe('Definitions') do
   definition_spec_params = {"word" => "slither", "part_of_speech" => "verb", "in_a_sentence" => "The snake slithered across the path", "body" => "to go or walk with a sliding motion"}
   definition_spec_params2 = {"word" => "slither", ":part_of_speech" => "verb", "in_a_sentence" => "The box slithered down the chute", "body" => "to slide down or along a surface, especially unsteadily, from side to side, or with some friction or noise"}
