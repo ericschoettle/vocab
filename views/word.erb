@@ -33,8 +33,11 @@
   <h2>Mirriam-Webster says:</h2>
   <h3><b><%=@word.word()%></b></h3>
   <p><b><i><%=@dictionary.part_of_speech()%></i>:</b> <%=@dictionary.body()%></p>
+
   <form action="/plagarize" method="post">
-    <input type="hidden" name="definition" value="<%=@dictionary%>" >
+    <input type="hidden" name="word" value="<%=@dictionary.word.word()%>" >
+    <input type="hidden" name="part_of_speech" value="<%=@dictionary.part_of_speech()%>" >
+    <input type="hidden" name="body" value="<%=@dictionary.body()%>" >
     <button class="btn btn-danger" type="submit">Plagarize???</button>
   </form>
 </div>

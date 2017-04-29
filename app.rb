@@ -27,9 +27,8 @@ get('/word/:word') do
 end
 
 post('/plagarize') do
-  definition = params["definition"]
-  definition.save()
-  @word = Words.find_by_word(definition.word())
-  erb(:word)
-  
+  dictionary = Definitions.new(params)
+  dictionary.attach_to_word()
+  @words = Words.all()
+  erb(:index)
 end
