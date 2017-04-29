@@ -11,6 +11,9 @@ This application allows the user to save words and definitions and look through 
 Setup instructions
 
 Instructions for Mac:
+Go to: https://evening-garden-61145.herokuapp.com/
+
+Or:
 Install Ruby
 Download "Vocab"
 Navigate to "Vocab" on your computer
