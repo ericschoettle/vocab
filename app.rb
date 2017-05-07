@@ -12,11 +12,20 @@ get('/') do
 end
 
 post('/word') do
-  @definition = Definitions.new(params)
-  @definition.attach_to_word()
+  definition = Definitions.new(params)
+  definition.attach_to_word()
   @words = Words.all()
   @word = Words.find_by_word(params["word"])
   erb(:index)
+end
+
+post('/definition') do
+  definition = Definitions.new(params)
+  definition.attach_to_word()
+  @word = Words.find_by_word(params["word"])
+  @dictionary = @word.dictionary()
+  @words = Words.all()
+  erb(:word)
 end
 
 get('/word/:word') do

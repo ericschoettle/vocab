@@ -53,7 +53,6 @@ describe('Definitions') do
 
   describe("#attach_to_word") do
     it "creates a new word if the word doesn't yet exist" do
-      binding.pry
       test_definition = Definitions.new(definition_spec_params)
       test_definition.attach_to_word()
       expect(Words.find_by_word("slither").definitions).to(eq([test_definition]))
